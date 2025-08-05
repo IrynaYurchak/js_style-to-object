@@ -2,12 +2,16 @@
 
 /**
  * @param {string} sourceString
- *
  * @return {object}
  */
-
 function convertToObject(code) {
-  const strings = code.split(';');
+  const trimmedCode = code.trim();
+
+  if (trimmedCode === '') {
+    return {};
+  }
+
+  const strings = trimmedCode.split(';');
   const styles = {};
 
   for (let i = 0; i < strings.length; i++) {
